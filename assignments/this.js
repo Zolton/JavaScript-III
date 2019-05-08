@@ -20,8 +20,8 @@ console.log(this)
 // Principle 2
 
 // code example for Implicit Binding
-myObj = {
-    function add() {
+const myObj = {
+    add: function () {
         console.log(this)
     }
 }
@@ -35,8 +35,8 @@ function sayName (name, age, school){
     this.school = school;
 }
 
-    const Greg = new sayName(Greg, 65, Lambda);
-    console.log(Greg)
+    const Gregzz = new sayName(Greg, 10, Lambda);
+    console.log(Gregzz)
 
 // Principle 4
 
@@ -44,9 +44,11 @@ function sayName (name, age, school){
 function sayName (name, age){
     this.name = name;
     this.age = age;
-    this.speak (){
+    this.speak = function (){
     console.log(`Hi ${this.name} is ${this.age}`)
     }
 }
 let Greg = new sayName(Greg, 20)
 let Ryan = new sayName(Ryan, 50)
+
+console.log(Greg)

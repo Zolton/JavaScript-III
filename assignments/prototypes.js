@@ -155,7 +155,16 @@ Humanoid.prototype.greet = function () {
     this.menacingLaugh = attr.menacingLaugh;
     Humanoid.call(this, attr)
   }
+  
   Villain.prototype = Object.create(Humanoid.prototype)
+
+  function Hero(attr) {
+    this.heroPower = attr.heroPower;
+    this.heartWarmingLaugh = attr.heartWarmingLaugh;
+    Villain.call(this, attr)
+  }
+
+  Hero.prototype = Object.create(Villain.prototype)
 
 
   // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
