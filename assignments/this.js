@@ -35,7 +35,7 @@ function sayName (name, age, school){
     this.school = school;
 }
 
-    const Gregzz = new sayName(Greg, 10, Lambda);
+    const Gregzz = new sayName({name: "Greg", age: 10, school: "Lambda"});
     console.log(Gregzz)
 
 // Principle 4
@@ -48,7 +48,7 @@ function sayName (name, age){
     console.log(`Hi ${this.name} is ${this.age}`)
     }
 }
-let Greg = new sayName(Greg, 20)
-let Ryan = new sayName(Ryan, 50)
+const Greg = new sayName({name: "Greg", age: 20});
+const Ryan = new sayName({name: "Ryan", age: 50});
 
 console.log(Greg)
