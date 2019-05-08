@@ -9,21 +9,8 @@
 * write out a code example of each explanation above
 */
 
-//1
 
-//2
-
-
-
-
-//3
-
-}
-
-//4
-
-
-
+"use strict"
 
 // Principle 1
 
@@ -34,7 +21,7 @@ console.log(this)
 
 // code example for Implicit Binding
 myObj = {
-    function add(){
+    function add() {
         console.log(this)
     }
 }
@@ -46,6 +33,10 @@ function sayName (name, age, school){
     this.name = name;
     this.age = age;
     this.school = school;
+}
+
+    const Greg = new sayName(Greg, 65, Lambda);
+    console.log(Greg)
 
 // Principle 4
 
@@ -54,10 +45,8 @@ function sayName (name, age){
     this.name = name;
     this.age = age;
     this.speak (){
-    console.log("Hi", this.name " is " this.age)
+    console.log(`Hi ${this.name} is ${this.age}`)
     }
 }
 let Greg = new sayName(Greg, 20)
 let Ryan = new sayName(Ryan, 50)
-
-Greg.speak
