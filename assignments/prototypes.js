@@ -10,38 +10,74 @@
   
 /*
   === GameObject ===
-  * createdAt
-  * name
-  * dimensions (These represent the character's size in the video game)
-  * destroy() // prototype method that returns: `${this.name} was removed from the game.`
+  *11 createdAt
+  * 11name
+  * 11dimensions (These represent the character's size in the video game)
+  * 11destroy() // prototype method that returns: `${this.name} was removed from the game.`
+  * 
+  * DONE
 */
+"use strict"
+function GameObject (attributes) {
+  this.createdAt = attributes.createdAt;
+  this.name = attributes.name;
+  this.dimensions = attributes.dimensions;
+}
+
+GameObject.prototype.destroy = function  () {
+  return (`${this.name} was removed from the game`)
+}
 
 /*
   === CharacterStats ===
-  * healthPoints
-  * takeDamage() // prototype method -> returns the string '<object name> took damage.'
-  * should inherit destroy() from GameObject's prototype
+  11* healthPoints
+  11* takeDamage() // prototype method -> returns the string '<object name> took damage.'
+  11* should inherit destroy() from GameObject's prototype
 */
+
+function CharacterStats (attribute) {
+  GameObject.call(this, attribute)
+  this.healthPoints = attribute.healthPoints;
+}
+
+CharacterStats.prototype = Object.create(GameObject.prototype)
+
+CharacterStats.prototype.takeDamage = function(){
+  return (`${this.name} took damage`)
+}
 
 /*
   === Humanoid (Having an appearance or character resembling that of a human.) ===
-  * team
-  * weapons
-  * language
-  * greet() // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
-  * should inherit destroy() from GameObject through CharacterStats
-  * should inherit takeDamage() from CharacterStats
+ 11 * team
+ 11 * weapons
+  11* language
+  11* greet() // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
+  *111 should inherit destroy() from GameObject through CharacterStats
+  1111* should inherit takeDamage() from CharacterStats
 */
+
+function Humanoid (attr) {
+  this.team = attr.team;
+  this.weapons = attr.weapons;
+  this.language = attr.language;
+  CharacterStats.call(this, attr)
+}
+
+Humanoid.prototype = Object.create(CharacterStats.prototype)
+
+Humanoid.prototype.greet = function () {
+  return (`${this.team} offers a greeting in ${this.language}`)
+}
  
 /*
-  * Inheritance chain: GameObject -> CharacterStats -> Humanoid
-  * Instances of Humanoid should have all of the same properties as CharacterStats and GameObject.
-  * Instances of CharacterStats should have all of the same properties as GameObject.
+  *111 Inheritance chain: GameObject -> CharacterStats -> Humanoid
+  *111 Instances of Humanoid should have all of the same properties as CharacterStats and GameObject.
+  * 111Instances of CharacterStats should have all of the same properties as GameObject.
 */
 
 // Test you work by un-commenting these 3 objects and the list of console logs below:
 
-/*
+
   const mage = new Humanoid({
     createdAt: new Date(),
     dimensions: {
@@ -102,9 +138,29 @@
   console.log(archer.greet()); // Lilith offers a greeting in Elvish.
   console.log(mage.takeDamage()); // Bruce took damage.
   console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
-*/
+
 
   // Stretch task: 
   // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.  
+
+  function Villain (attr) {
+    this.evilPower = attr.evilPower;
+    this.menacingLaugh = attr.menacingLaugh;
+    Humanoid.call(this, attr)
+  }
+
+  Villain.prototype = Object.create(Humanoid.prototype)
+
+  function Hero(attr) {
+    this.heroPower = attr.heroPower;
+    this.heartWarmingLaugh = attr.heartWarmingLaugh;
+    Villain.call(this, attr)
+  }
+
+  Hero.prototype = Object.create(Villain.prototype)
+
+
   // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
+
+
   // * Create two new objects, one a villain and one a hero and fight it out with methods!
