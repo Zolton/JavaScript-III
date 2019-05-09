@@ -29,10 +29,10 @@ const myObj = {
 // Principle 3
 
 // code example for New Binding
-function sayName (name, age, school){
-    this.name = name;
-    this.age = age;
-    this.school = school;
+function sayName (attr){
+    this.name = attr.name;
+    this.age = attr.age;
+    this.school = attr.school;
 }
 
     const Gregzz = new sayName({name: "Greg", age: 10, school: "Lambda"});
@@ -41,14 +41,24 @@ function sayName (name, age, school){
 // Principle 4
 
 // code example for Explicit Binding
-function sayName (name, age){
-    this.name = name;
-    this.age = age;
-    this.speak = function (){
-    console.log(`Hi ${this.name} is ${this.age}`)
-    }
+function Person (attr){
+    this.name = attr.name;
+    this.age = attr.age;
 }
-const Greg = new sayName({name: "Greg", age: 20});
-const Ryan = new sayName({name: "Ryan", age: 50});
 
-console.log(Greg)
+Person.prototype.speak = function (){
+    return (`Hi ${this.name} is ${this.age}`)
+    }
+    
+
+let greg = new Person({name: "Greg", age: 10});
+let ryan = new Person({name: "Ryan", age: 50});
+
+speak.call(ryan)
+
+
+
+
+
+
+

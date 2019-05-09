@@ -28,9 +28,6 @@ GameObject.prototype.destroy = function  () {
   return (`${this.name} was removed from the game`)
 }
 
-
-
-
 /*
   === CharacterStats ===
   11* healthPoints
@@ -55,8 +52,8 @@ CharacterStats.prototype.takeDamage = function(){
  11 * weapons
   11* language
   11* greet() // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
-  * should inherit destroy() from GameObject through CharacterStats
-  * should inherit takeDamage() from CharacterStats
+  *111 should inherit destroy() from GameObject through CharacterStats
+  1111* should inherit takeDamage() from CharacterStats
 */
 
 function Humanoid (attr) {
@@ -73,14 +70,10 @@ Humanoid.prototype.greet = function () {
 }
  
 /*
-  * Inheritance chain: GameObject -> CharacterStats -> Humanoid
-  * Instances of Humanoid should have all of the same properties as CharacterStats and GameObject.
-  * Instances of CharacterStats should have all of the same properties as GameObject.
+  *111 Inheritance chain: GameObject -> CharacterStats -> Humanoid
+  *111 Instances of Humanoid should have all of the same properties as CharacterStats and GameObject.
+  * 111Instances of CharacterStats should have all of the same properties as GameObject.
 */
-
-
-
-
 
 // Test you work by un-commenting these 3 objects and the list of console logs below:
 
@@ -169,5 +162,5 @@ Humanoid.prototype.greet = function () {
 
   // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
 
-  
+
   // * Create two new objects, one a villain and one a hero and fight it out with methods!
